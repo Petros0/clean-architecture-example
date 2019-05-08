@@ -2,6 +2,7 @@ package io.reflectoring.reviewapp.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Value;
 import org.springframework.data.annotation.Id;
 
 @Getter
@@ -9,9 +10,14 @@ import org.springframework.data.annotation.Id;
 public class Book {
 
   @Id
-  private Long id;
+  private BookId id;
   private String title;
   private Long authorId;
+
+  @Value
+  public static class BookId {
+    private final Long value;
+  }
 
   // imagine some insanely complex business logic methods ...
 

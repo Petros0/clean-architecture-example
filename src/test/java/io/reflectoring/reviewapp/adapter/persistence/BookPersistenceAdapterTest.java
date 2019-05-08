@@ -37,7 +37,7 @@ class BookPersistenceAdapterTest {
   void savesBook() {
     Book book = new Book(null, "A Hitchhiker's Guide to the Galaxy", 42L);
     Book savedBook = bookPersistenceAdapter.saveBook(book);
-    assertThat(bookRepository.findById(savedBook.getId())).isPresent();
+    assertThat(bookRepository.findById(savedBook.getId().getValue())).isPresent();
   }
 
 }
